@@ -1,18 +1,19 @@
-import mysql.connector
+from mysql.connector import pooling
 
 db_config = {
     'host': '127.0.0.1',
     'user': 'soy',
     'database': 'soy',
+    'password': '1234',
 }
 
-conn = mysql.connector.connect(
-    host='localhost',
-    port='3306',
-    database='soy',
-    user='soy',
-    password='1234',
+pool = pooling.MySQLConnectionPool(
+    pool_name = "test",
+    pool_size = 10,
+    **db_config,
 )
+
+conn = pool.get_connection()
 
 if conn.is_connected():
     c = conn.cursor()
