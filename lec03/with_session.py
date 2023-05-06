@@ -35,4 +35,4 @@ def index():
     return render_template('index.html', is_login=is_login, message=message)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=8081, host="0.0.0.0")
