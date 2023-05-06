@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Main page</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h3>현재 상태: {{ is_login }}</h3>
+    <p>서버의 메시지: {{ message }}</p>
+
+    {% if is_login == True %}
+    <button type="button" onclick="location.href='logout'">로그아웃</button>
+    {% else %}
+    <button type="button" onclick="location.href='login'">로그인</button>
+    {% endif %}
+  </body>
+</html>
